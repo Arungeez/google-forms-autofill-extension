@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Google Forms Autofill",
+  "version": "1.0",
+  "description": "Automatically fills predefined data in Google Forms.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/forms/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/forms/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

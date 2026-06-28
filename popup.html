@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms Autofill Setup</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="popup-wrapper">
+        <header class="header">
+            <div class="logo-container">
+                <div class="glow-orb"></div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h1 class="title">Forms<span class="highlight">Autofill</span></h1>
+        </header>
+
+        <form id="autofillForm" class="content-form">
+            <div id="predefinedFields">
+                <div class="section-title">Personal Details</div>
+                
+                <div class="form-group">
+                    <label for="rollNumber">University Roll Number</label>
+                    <input type="text" id="rollNumber" placeholder="e.g. 2023CSB1001" autocomplete="off" />
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" autocomplete="off" />
+                </div>
+
+                <div class="form-group row-group">
+                    <div class="col">
+                        <label for="gender">Gender</label>
+                        <div class="custom-select-wrapper">
+                            <select id="gender">
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" />
+                    </div>
+                </div>
+
+                <div class="form-group row-group">
+                    <div class="col">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+1234567890" />
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <div class="section-title">Academic Details</div>
+
+                <div class="form-group row-group">
+                    <div class="col">
+                        <label for="course">Current Course</label>
+                        <div class="custom-select-wrapper">
+                            <select id="course">
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="M.Tech">M.Tech</option>
+                                <option value="B.Sc">B.Sc</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="specialization">Specialization</label>
+                        <div class="custom-select-wrapper">
+                            <select id="specialization">
+                                <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Mechanical">Mechanical</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row-group">
+                    <div class="col">
+                        <label for="tenth">Class 10th %</label>
+                        <input type="number" id="tenth" placeholder="95" step="0.01" />
+                    </div>
+                    <div class="col">
+                        <label for="twelfth">Class 12th %</label>
+                        <input type="number" id="twelfth" placeholder="90" step="0.01" />
+                    </div>
+                    <div class="col">
+                        <label for="cgpa">Current CGPA</label>
+                        <input type="number" id="cgpa" placeholder="9.0" step="0.01" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="section-header-row">
+                <div class="section-title" style="margin-bottom:0;">Custom Fields</div>
+                <button type="button" id="addFieldBtn" class="btn-text-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Add Field
+                </button>
+            </div>
+
+            <div id="customFieldsContainer">
+                <!-- Dynamically populated custom fields go here -->
+            </div>
+
+            <div class="actions" style="margin-top: 24px;">
+                <button type="button" id="saveBtn" class="btn-primary">
+                    <span class="btn-text">Save Configuration</span>
+                    <div class="spinner" id="saveSpinner"></div>
+                </button>
+                <div id="statusMessage" class="status"></div>
+            </div>
+        </form>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
